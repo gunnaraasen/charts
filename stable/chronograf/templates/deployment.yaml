@@ -15,9 +15,9 @@ spec:
         app: {{ template "chronograf.fullname" . }}
     spec:
       containers:
-      - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+      - name: {{ template "chronograf.fullname" . }}
+        image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
 {{- if .Values.oauth.enabled }}
         env:
         - name: TOKEN_SECRET

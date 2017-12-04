@@ -1,9 +1,11 @@
-## Image Settings
-##
+## Default values.yaml for Chronograf
+## This is a YAML-formatted file.
+## ref: https://hub.docker.com/r/library/chronograf/tags/
 image:
-  repository: "quay.io/influxdb/chronograf"
-  tag: "latest"
-  pullPolicy: "Always"
+  repo: "chronograf"
+  tag: "1.3.8-alpine"
+  pullPolicy: IfNotPresent
+
 
 ## Specify a service type
 ## ClusterIP is default
@@ -13,7 +15,7 @@ service:
   replicas: 1
   type: ClusterIP
 
-## Persist data to a persitent volume
+## Persist data to a persistent volume
 ##
 persistence:
   enabled: false
